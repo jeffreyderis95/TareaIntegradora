@@ -1,0 +1,19 @@
+body {
+  background-color: #eb88bb;
+}
+h1 {
+  background-color: rgb(162, 219, 5);
+  border: #e12285 solid 10px;
+}
+.jeffrisimage {
+  border-radius: 55%;
+  border: #190710 solid 10px;
+  cursor: pointer;
+   transition: transform 1s;
+}
+.jeffrisimage:hover {
+    transform: rotate(360deg);
+}
+.mirrored {
+  transform: scaleX(-1);
+}
