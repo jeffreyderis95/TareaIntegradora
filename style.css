@@ -1,5 +1,8 @@
 body {
   background-color: #eb88bb;
+  cursor:
+    url(images/mantis-hat-cursor.png) 0 0,
+    auto;
 }
 h1 {
   background-color: rgb(162, 219, 5);
@@ -9,10 +12,10 @@ h1 {
   border-radius: 55%;
   border: #190710 solid 10px;
   cursor: pointer;
-   transition: transform 1s;
+  transition: transform 1s;
 }
 .jeffrisimage:hover {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 .mirrored {
   transform: scaleX(-1);
