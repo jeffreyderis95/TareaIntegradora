@@ -20,3 +20,9 @@ h1 {
 .mirrored {
   transform: scaleX(-1);
 }
+.gottfried-image {
+  width: 400px;
+}
+.gottfried-speech {
+  display: flex;
+}
