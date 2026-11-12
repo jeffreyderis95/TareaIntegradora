@@ -72,7 +72,7 @@ const images = [
   {
     imageSrc: "images/present/medizin-heute.jpg",
     caption: "die Medizin Heute",
-    pastOrToday: "prresent",
+    pastOrToday: "present",
   },
   {
     imageSrc: "images/present/schule-heute.jpg",
@@ -90,6 +90,44 @@ const images = [
     pastOrToday: "present",
   },
 ];
+shuffle(images);
 let currentImage = images.pop();
+let progress = 1;
 const currentImageContainer = document.querySelector(".current-image");
 currentImageContainer.querySelector("img").src = currentImage.imageSrc;
+const progressCounter = document.querySelector(".progress");
+document.querySelector(".before").addEventListener("click", function () {
+  if (currentImage.pastOrToday === "present") {
+    alert("Nein, versuch es noch mal!");
+  } else {
+    const imgElement = document.createElement("img");
+    imgElement.src = currentImage.imageSrc;
+    document.querySelector(".image-answers.past").append(imgElement);
+    currentImage = images.pop();
+    currentImageContainer.querySelector("img").src = currentImage.imageSrc;
+    progress++;
+    progressCounter.textContent = progress + "/18";
+  }
+});
+document.querySelector(".heute").addEventListener("click", function () {
+  if (currentImage.pastOrToday === "past") {
+    alert("Nein, versuch es noch mal!");
+  } else {
+    const imgElement = document.createElement("img");
+    imgElement.src = currentImage.imageSrc;
+    document.querySelector(".image-answers.present").append(imgElement);
+    currentImage = images.pop();
+    currentImageContainer.querySelector("img").src = currentImage.imageSrc;
+    progress++;
+    progressCounter.textContent = progress + "/18";
+  }
+});
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
+}

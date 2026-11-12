@@ -63,3 +63,13 @@ h1 {
 .columns h3 {
   text-align: center;
 }
+.image-select img {
+  width: 600px;
+  height: auto;
+}
+.image-answers img {
+  max-width: 100px;
+}
+.progress {
+  text-align: center;
+}
