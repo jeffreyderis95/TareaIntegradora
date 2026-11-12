@@ -73,3 +73,40 @@ h1 {
 .progress {
   text-align: center;
 }
+.sentence-builder-game {
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  height: 600px;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sentence {
+  width: 80%;
+  border-bottom: 1px solid black;
+}
+.words-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+  padding-bottom: 10px;
+}
+.header,
+.words-container {
+  flex: 1;
+}
+.words-container .words {
+  display: flex;
+  gap: 20px;
+}
+.words-container .words .word {
+  font-size: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+.words-container .words .word:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
