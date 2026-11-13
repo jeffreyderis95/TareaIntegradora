@@ -283,7 +283,7 @@ document.querySelector(".check-answer").addEventListener("click", function () {
       wordsContainer.append(wordElement);
     }
   } else {
-    alert("Nein, versuch es noch mal");
+    alert("Nein, versuch es noch mal!");
   }
 });
 function userAnswerIsCorrect(useWords) {
