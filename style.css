@@ -84,6 +84,9 @@ h1 {
 .sentence {
   width: 80%;
   border-bottom: 1px solid black;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .words-container {
   display: flex;
@@ -100,13 +103,24 @@ h1 {
 .words-container .words {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.words-container .words .word {
+.sentence-builder-game .word {
   font-size: 30px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px;
   border-radius: 10px;
 }
-.words-container .words .word:hover {
+.sentence-builder-game .word:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+.check-answer {
+  font-size: 30px;
+  border-radius: 40px;
+  width: 200px;
+  padding: 5px;
+  margin-top: 17px;
+  margin-bottom: 10px;
+  cursor: unset;
 }
