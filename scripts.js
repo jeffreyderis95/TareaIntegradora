@@ -1,92 +1,92 @@
 const images = [
   {
     imageSrc: "images/past/auto-frueher.jpg",
-    caption: "das Auto Früher",
+    caption: "das Auto",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/bahn-frueher.jpg",
-    caption: "die Bahn Früher",
+    caption: "die Bahn",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/buero-frueher.jpg",
-    caption: "das Büro Früher",
+    caption: "das Büro",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/einkaufen-frueher.jpg",
-    caption: "Einkaufen Früher",
+    caption: "Einkaufen",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/energie-frueher.jpg",
-    caption: "die Energie Früher",
+    caption: "die Energie",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/medizin-frueher.jpg",
-    caption: "die Medizin Früher",
+    caption: "die Medizin",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/schule-frueher.jpg",
-    caption: "die Schule Früher",
+    caption: "die Schule",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/stadtverkehr-frueher.jpg",
-    caption: "der Stadtverkehr Früher",
+    caption: "der Stadtverkehr",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/past/telefon-frueher.jpg",
-    caption: "das Telefon Früher",
+    caption: "das Telefon",
     pastOrToday: "past",
   },
   {
     imageSrc: "images/present/auto-heute.jpg",
-    caption: "das Auto Heute",
+    caption: "das Auto",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/bahn-heute.jpg",
-    caption: "die Bahn Heute",
+    caption: "die Bahn",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/buero-heute.jpg",
-    caption: "das Büro Heute",
+    caption: "das Büro",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/einkaufen-heute.jpg",
-    caption: "Einkaufen Heute",
+    caption: "Einkaufen",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/energie-heute.jpg",
-    caption: "die Energie Heute",
+    caption: "die Energie",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/medizin-heute.jpg",
-    caption: "die Medizin Heute",
+    caption: "die Medizin",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/schule-heute.jpg",
-    caption: "die Schule Heute",
+    caption: "die Schule",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/stadtverkehr-heute.jpg",
-    caption: "der Stadtverkehr Heute",
+    caption: "der Stadtverkehr",
     pastOrToday: "present",
   },
   {
     imageSrc: "images/present/telefon-heute.jpg",
-    caption: "das Telefon Heute",
+    caption: "das Telefon",
     pastOrToday: "present",
   },
 ];
@@ -95,6 +95,7 @@ let currentImage = images.pop();
 let progress = 1;
 const currentImageContainer = document.querySelector(".current-image");
 currentImageContainer.querySelector("img").src = currentImage.imageSrc;
+currentImageContainer.querySelector(".caption").textContent = currentImage.caption;
 const progressCounter = document.querySelector(".progress");
 document.querySelector(".before").addEventListener("click", function () {
   if (currentImage.pastOrToday === "present") {
@@ -109,6 +110,7 @@ document.querySelector(".before").addEventListener("click", function () {
     if (currentImage) {
       currentImageContainer.querySelector("img").src = currentImage.imageSrc;
       progress++;
+      currentImageContainer.querySelector(".caption").textContent = currentImage.caption;
       progressCounter.textContent = progress + "/18";
     } else {
       winGame1();
@@ -128,6 +130,7 @@ document.querySelector(".heute").addEventListener("click", function () {
     if (currentImage) {
       currentImageContainer.querySelector("img").src = currentImage.imageSrc;
       progress++;
+      currentImageContainer.querySelector(".caption").textContent = currentImage.caption;
       progressCounter.textContent = progress + "/18";
     } else {
       winGame1();
@@ -150,6 +153,7 @@ function winGame1() {
 const wordsContainer = document.querySelector(".sentence-builder-game .words");
 const sentenceContainer = document.querySelector(".sentence-builder-game .sentence");
 wordsContainer.innerHTML = "";
+const sentenceProgressCounter = document.querySelector(".sentence-builder-game .progress span");
 
 const sentences = [
   {
@@ -313,6 +317,7 @@ document.querySelector(".check-answer").addEventListener("click", function () {
         wordElement.textContent = word;
         wordsContainer.append(wordElement);
       }
+      sentenceProgressCounter.textContent = 10 - sentences.length;
     }
   } else {
     alert("Nein, versuch es noch mal!");

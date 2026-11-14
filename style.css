@@ -39,6 +39,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 50px;
 }
 .button-group {
   display: flex;
@@ -68,8 +69,14 @@ h1 {
   text-align: center;
 }
 .image-select img {
-  width: 600px;
-  height: auto;
+  width: auto;
+  height: 400px;
+}
+.current-image {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .image-answers img {
   max-width: 100px;
@@ -115,6 +122,14 @@ h1 {
 .header,
 .words-container {
   flex: 1;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sentence-builder-game .progress {
+  font-size: 30px;
 }
 .words-container .words {
   display: flex;
@@ -233,4 +248,8 @@ h1 {
 }
 .appear-after-game2 {
   display: none;
+}
+.caption {
+  margin-top: 10px;
+  font-size: 40px;
 }
