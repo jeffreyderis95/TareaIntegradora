@@ -1,4 +1,5 @@
 body {
+  font-family: "Roboto", sans-serif;
   background-color: #e4e693;
   cursor:
     url(images/mantis-hat-cursor.png) 0 0,
@@ -11,7 +12,9 @@ body {
 }
 h1 {
   background-color: rgb(236, 111, 111);
-  border: #08010b solid 10px;
+  border: #08010b solid 5px;
+  border-radius: 25px;
+  text-align: center;
 }
 .jeffrisimage {
   border-radius: 55%;
@@ -44,8 +47,9 @@ h1 {
   margin-top: 17px;
 }
 .button-group button {
+  background-color: #e86464;
   font-size: 50px;
-  border-radius: 40px;
+  border-radius: 50px;
   padding: 10px;
   width: 200px;
   cursor: unset;
@@ -57,7 +61,7 @@ h1 {
 
 .image-answers {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .columns h3 {
@@ -72,9 +76,21 @@ h1 {
 }
 .progress {
   text-align: center;
+  font-size: 20px;
+  background-color: #e86464;
+  border: #08010b solid 1px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.progresscontainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 .sentence-builder-game {
-  border: 1px dashed rgba(0, 0, 0, 0.2);
+  background-color: rgb(238, 238, 167);
+  border-radius: 30px;
+  border: 5px solid rgba(0, 0, 0, 0.2);
   height: 600px;
   margin: 50px 0;
   display: flex;
@@ -107,6 +123,7 @@ h1 {
   justify-content: center;
 }
 .sentence-builder-game .word {
+  background-color: #faf499;
   font-size: 30px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px;
@@ -116,6 +133,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .check-answer {
+  background-color: #e86464;
   font-size: 30px;
   border-radius: 40px;
   width: 200px;
@@ -123,4 +141,96 @@ h1 {
   margin-top: 17px;
   margin-bottom: 10px;
   cursor: unset;
+}
+.speech-bubble {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.speech-bubble.intro::after {
+  content: "";
+  position: absolute;
+
+  right: -100px;
+  top: 110px;
+
+  width: 100px;
+  height: 40px;
+
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.speech-bubble.game1 {
+  margin-top: 100px;
+}
+.speech-bubble.game1::after {
+  content: "";
+  position: absolute;
+
+  left: -98px;
+  top: 25px;
+
+  width: 100px;
+  height: 40px;
+
+  background: white;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+.speech-bubble.game1success::after {
+  content: "";
+  position: absolute;
+
+  right: -149px;
+  top: 5px;
+
+  width: 150px;
+  height: 200px;
+
+  background: white;
+  clip-path: polygon(0 20px, 120px 100px, 0px 60px);
+}
+
+.speech-bubble.game2 {
+  margin-top: 85px;
+}
+.speech-bubble.game2::after {
+  content: "";
+  position: absolute;
+
+  left: -98px;
+  top: 25px;
+
+  width: 100px;
+  height: 40px;
+
+  background: white;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+.speech-bubble.game2success::after {
+  content: "";
+  position: absolute;
+
+  right: -149px;
+  top: 5px;
+
+  width: 150px;
+  height: 200px;
+
+  background: white;
+  clip-path: polygon(0 30px, 120px 100px, 0px 70px);
+}
+.bold {
+  font-weight: bolder;
+}
+.current-image img {
+  border-radius: 40px;
+  border: #08010b solid 3px;
+}
+.appear-after-game1 {
+  display: none;
+}
+.appear-after-game2 {
+  display: none;
 }

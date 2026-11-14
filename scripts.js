@@ -100,13 +100,19 @@ document.querySelector(".before").addEventListener("click", function () {
   if (currentImage.pastOrToday === "present") {
     alert("Nein, versuch es noch mal!");
   } else {
+    const imageContainer = document.createElement("div");
     const imgElement = document.createElement("img");
     imgElement.src = currentImage.imageSrc;
-    document.querySelector(".image-answers.past").append(imgElement);
+    imageContainer.append(imgElement);
+    document.querySelector(".image-answers.past").append(imageContainer);
     currentImage = images.pop();
-    currentImageContainer.querySelector("img").src = currentImage.imageSrc;
-    progress++;
-    progressCounter.textContent = progress + "/18";
+    if (currentImage) {
+      currentImageContainer.querySelector("img").src = currentImage.imageSrc;
+      progress++;
+      progressCounter.textContent = progress + "/18";
+    } else {
+      winGame1();
+    }
   }
 });
 document.querySelector(".heute").addEventListener("click", function () {
@@ -114,14 +120,30 @@ document.querySelector(".heute").addEventListener("click", function () {
     alert("Nein, versuch es noch mal!");
   } else {
     const imgElement = document.createElement("img");
+    const imageContainer = document.createElement("div");
+    imageContainer.append(imgElement);
     imgElement.src = currentImage.imageSrc;
-    document.querySelector(".image-answers.present").append(imgElement);
+    document.querySelector(".image-answers.present").append(imageContainer);
     currentImage = images.pop();
-    currentImageContainer.querySelector("img").src = currentImage.imageSrc;
-    progress++;
-    progressCounter.textContent = progress + "/18";
+    if (currentImage) {
+      currentImageContainer.querySelector("img").src = currentImage.imageSrc;
+      progress++;
+      progressCounter.textContent = progress + "/18";
+    } else {
+      winGame1();
+    }
   }
 });
+function winGame1() {
+  const gotffried = document.querySelector(".appear-after-game1");
+  gotffried.classList.remove("appear-after-game1");
+  document.querySelector(".image-select").remove();
+  gotffried.querySelector(".speech-bubble").scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+    inline: "center",
+  });
+}
 // End Game 1
 
 // Game 2 stars  - Sentence Builder
@@ -270,17 +292,27 @@ sentenceContainer.addEventListener("click", function (event) {
 document.querySelector(".check-answer").addEventListener("click", function () {
   const useWords = document.querySelectorAll(".sentence .word");
   if (userAnswerIsCorrect(useWords)) {
-    alert("Gut gemacht! Nächster Satz!");
-    currentSentence = sentences.pop();
-    const words = currentSentence.sentence.split(" ");
-    shuffle(words);
-    wordsContainer.innerHTML = "";
-    sentenceContainer.innerHTML = "";
-    for (const word of words) {
-      const wordElement = document.createElement("div");
-      wordElement.classList.add("word");
-      wordElement.textContent = word;
-      wordsContainer.append(wordElement);
+    if (sentences.length === 0) {
+      const gotffried = document.querySelector(".appear-after-game2");
+      gotffried.classList.remove("appear-after-game2");
+      gotffried.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    } else {
+      alert("Gut gemacht! Nächster Satz!");
+      currentSentence = sentences.pop();
+      const words = currentSentence.sentence.split(" ");
+      shuffle(words);
+      wordsContainer.innerHTML = "";
+      sentenceContainer.innerHTML = "";
+      for (const word of words) {
+        const wordElement = document.createElement("div");
+        wordElement.classList.add("word");
+        wordElement.textContent = word;
+        wordsContainer.append(wordElement);
+      }
     }
   } else {
     alert("Nein, versuch es noch mal!");
